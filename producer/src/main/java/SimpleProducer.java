@@ -24,7 +24,7 @@ public class SimpleProducer {
 
 
         String messageValue = "testMsg";
-        ProducerRecord<String, String> record = new ProducerRecord<>(TOPIC_NAME, messageValue);
+        ProducerRecord<String, String> record = new ProducerRecord<>(TOPIC_NAME, "pangyo", messageValue);
         //messageKey는 null
 
         producer.send(record);
@@ -125,4 +125,8 @@ public class SimpleProducer {
          * testMsg
          */
     }
+
+
+
 }
+
