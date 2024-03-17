@@ -29,6 +29,8 @@ public class ConsumerRebalanceListener {
         consumer = new KafkaConsumer<String, String>(config);
         consumer.subscribe(Arrays.asList(TOPIC_NAME), new ReBalanceListener());
 
+        Set<TopicPartition> assignedTopicPartition = consumer.assignment();
+        logger.error("ASSIGNMENT {}", assignedTopicPartition);
         while( true ) {
             ConsumerRecords<String , String > records = consumer.poll(Duration.ofSeconds(1));
 
